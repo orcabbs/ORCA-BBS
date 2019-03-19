@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-6">
+                    <div class="col-sm-6 col-xs-12">
                         <div class="form-group">
                             <label for="verfiyCode">Verification code</label>
                             <div class="input-group">
