@@ -12,7 +12,7 @@
     </script>
 </head>
 
-<body>
+<body onload="onloadVeri()">
 <!--导航栏-->
 <?php include "navigator.php"; ?>
 <div class="container">
@@ -77,6 +77,23 @@
                         <input type="password" class="form-control" placeholder="Password" id="InputPassword1" name="user_password" >
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label for="verfiyCode">Verification code</label>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon3">
+                                    <span class="glyphicon glyphicon-paste"></span>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Verification" id="verfiyCode" name="verfiy_Code" style="height: 40px;">
+
+                                <span class="input-group-addon" id="basic-addon3" style="padding: 3px">
+                                    <img src="./plugins/generate_VerifyCode.php" alt="" width="90px" height=30px" style="cursor: pointer" onClick="this.src='./plugins/generate_VerifyCode.php?nocache='+Math.random()">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="checkbox">
                     <label>
@@ -86,16 +103,28 @@
                 <br>
 
                 <div class="btn-group" role="group">
-                    <button type="submit" class="btn btn-default" name="register_btn">
+                    <button type="submit" class="btn btn-default" name="register_btn" id="register_btn">
                         <span class="glyphicon glyphicon-ok"></span> 确认注册
                     </button>
                 </div>
-
                 <hr>
                 <div>
                     <?php
                     include "sql_config.php";
-                    if(isset($_POST['user_email'])){
+                    $isCorrectAuth=true;
+                    if (isset($_POST['verfiy_Code'])) {
+                        session_start();
+                        if (strtolower($_POST['verfiy_Code'])==$_SESSION['authcode']) {
+
+                        }
+                        else{
+                            echo "<div class=\"alert alert-danger\" role=\"alert\">";
+                            echo "验证码输入错误，请重新输入";
+                            echo "</div>";
+                            $isCorrectAuth=false;
+                        }
+                    }
+                    if(isset($_POST['user_email'])&&$isCorrectAuth){
                         $user_name=$_POST['user_name'];
                         $user_email=$_POST['user_email'];
                         $user_password=$_POST['user_password'];
@@ -114,6 +143,11 @@
                         elseif (!filter_var($user_email,FILTER_VALIDATE_EMAIL)) {
                             echo "<div class=\"alert alert-danger\" role=\"alert\">";
                             echo "电子邮箱格式错误，请重新输入";
+                            echo "</div>";
+                        }
+                        elseif($_POST['verfiy_Code']==''){
+                            echo "<div class=\"alert alert-danger\" role=\"alert\">";
+                            echo "请输入验证码";
                             echo "</div>";
                         }
                         elseif (mb_strlen($user_password,"utf-8")<6){
@@ -148,7 +182,6 @@
 <?php //include "Live2D_initialize.php"?>
 </body>
 <script>
-
 </script>
 </html>
 

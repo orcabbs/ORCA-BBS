@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include "head_import.php";?>
+    <?php include "../pages/head_import.php";?>
     <title>主页</title>
 </head>
 
 <body background="../src/pic/memphis-colorful.png">
-<?php include "navigator.php"; ?>
+<?php include "../pages/navigator.php"; ?>
 <div class="container">
     <!--标题-->
     <div class="row">

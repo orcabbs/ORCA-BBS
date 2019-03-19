@@ -14,7 +14,7 @@
             <div class="jumbotron" style="color: #fff;background-image: url(../src/pic/LJXheroCompressed.png)" >
                 <h1>
                     <span>
-                        <span class="glyphicon glyphicon-education" aria-hidden="true"></span> Hello,
+                        <span class="glyphicon glyphicon-education" aria-hidden="true"></span> 你好,
                     </span>
                     <span style="color: #ffffff">ORCA</span>
                 </h1>
