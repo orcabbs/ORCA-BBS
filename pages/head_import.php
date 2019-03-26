@@ -5,8 +5,25 @@
  * Date: 2019-03-17
  * Time: 00:45
  */
+header("Content-Type: text/html;charset=utf-8");
+function characet($data){
+    if( !empty($data) ){
+        $fileType = mb_detect_encoding($data , array('UTF-8','GBK','LATIN1','BIG5')) ;
+        if( $fileType != 'UTF-8'){
+            $data = mb_convert_encoding($data ,'utf-8' , $fileType);
+        }
+    }
+    return $data;
+}
+function change_utf8($str) {
+    return mb_convert_encoding($str, 'utf-8', 'gbk');
+}
+function change_gbk($str) {
+    return mb_convert_encoding($str, 'gbk', 'utf-8');
+}
 $head_imp=<<<eof
     <meta charset="utf-8">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
