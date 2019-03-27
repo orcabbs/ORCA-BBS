@@ -39,6 +39,8 @@ $head_imp=<<<eof
     <!--CKEditor5 -->
     <script src="https://cdn.ckeditor.com/ckeditor5/12.0.0/classic/ckeditor.js"></script>
     <style>body { padding-top: 70px; }</style>
+    <link rel="stylesheet" href="../css/myConfig.css">
+<!--控制ckeditor高度--><style>.ck-content {min-height: 200px;}</style>
 eof;
 echo $head_imp;
 ?>
