@@ -27,19 +27,19 @@
 
             <div class="carousel-inner" role="listbox" style="border-radius: 10px">
                 <div class="item active">
-                    <img src="../src/pic/violet3.jpg" alt="...">
+                    <img src="https://s2.ax1x.com/2019/03/28/AdRTPg.jpg" alt="...">
                     <div class="carousel-caption">
                         VIOLET EVERGARDEN
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../src/pic/violet2.jpg" alt="...">
+                    <img src="https://s2.ax1x.com/2019/03/28/AdROrq.jpg" alt="...">
                     <div class="carousel-caption">
                         VIOLET EVERGARDEN
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../src/pic/violet1.jpg" alt="...">
+                    <img src="https://s2.ax1x.com/2019/03/28/AdRXq0.jpg" alt="...">
                     <div class="carousel-caption">
                         VIOLET EVERGARDEN
                     </div>
@@ -59,17 +59,9 @@
 
         <div class="row">
             <div class="container-fluid">
-                <div class="col-md-8 col-sm-7 hidden-xs" style="background-color: #2e6da4;border-radius: 4px">
+                <div class="col-xs-12" style="background-color: #64a461;border-radius: 4px">
                     <marquee><span class="serif" style="font-weight: bolder;font-size: 20px;color: white;"><span style="color: #e6eed8"><i class="fa fa-cog fa-spin"></i> Administrator: </span>Welcome to ORCA bbs, have fun and share your happiness.</span></marquee>
                 </div>
-                <div class="col-md-4 col-sm-5 col-xs-12">
-                    <div class="btn-group pull-right" role="group" aria-label="...">
-                        <button type="button" class="btn btn-primary">前一页</button>
-                        <button type="button" class="btn btn-default active ">当前页面：<span di="instant_page">1</span></button>
-                        <button type="button" class="btn btn-primary">后一页</button>
-                    </div>
-                </div>
-
             </div>
         </div>
         <br>
@@ -100,7 +92,7 @@
                         }
                         $accord_list=$con->query("call selectById('$row_result_postID')");
                         $accord_row=$accord_list->fetch_array();
-                        $accord_result_content=mb_substr(strip_tags(characet($accord_row['floor_content'])),0,40);
+                        $accord_result_content=mb_substr(strip_tags(characet($accord_row['floor_content'])),0,30);
                         $accord_result_time=characet($accord_row['post_time']);
                         $accord_result_email=characet($accord_row['floor_user_email']);
 
@@ -111,16 +103,16 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                     
-                                        <div class="col-xs-1">
+                                        <div class="col-lg-1 hidden-md hidden-sm hidden-xs">
                                             <img src="../src/pic/head.jpeg" alt="" class="img-thumbnail" style="border: rgba(59,184,146,0.52) 2px solid;">
                                         </div>
                                         <div class="col-xs-9">
                                             <a href="" style="font-size: medium;"><p>${row_result_title}</p></a>
                                             <footer class="small"><div style="color: #8c8c8c">${accord_result_email}: ${accord_result_content}...</div></footer>
                                         </div>
-                                        <div class="col-sm-2 text-right" style="color: #8c8c73">
-                                            <div style="color: #4e4e4e">Post Time:</div>
-                                            <div class="small">${accord_result_time}</div>
+                                        <div class="col-lg-2 col-xs-3 text-right" style="color: #ffffff;background-color: #818386;border-radius: 4px;">
+                                            <div style="color: #ffffff"><nobr><i class="fa fa-pencil fa-fw"></i>POST TIME:</nobr></div>
+                                            <div class="small"><nobr>${accord_result_time}</nobr></div>
                                         </div>
                                       
                                     </div>
@@ -132,16 +124,16 @@ eof;
                                 <div class="container-fluid">
                                     <div class="row">
                                     
-                                        <div class="col-xs-1">
+                                        <div class="col-lg-1 hidden-md hidden-sm hidden-xs">
                                             <img src="../src/pic/head.jpeg" alt="" class="img-thumbnail" style="border: rgba(59,184,146,0.52) 2px solid;">
                                         </div>
                                         <div class="col-xs-9">
                                             <a href="" style="font-size: medium;"><p>${row_result_title}</p></a>
                                             <footer class="small"><div style="color: #8c8c8c">${accord_result_email}: ${accord_result_content}...</div></footer>
                                         </div>
-                                        <div class="col-sm-2 text-right" style="color: #8c8c73">
-                                            <div style="color: #4e4e4e">Post Time:</div>
-                                            <div class="small">${accord_result_time}</div>
+                                        <div class="col-lg-2 col-xs-3 text-right" style="color: #ffffff;background-color: #818386;border-radius: 4px;">
+                                            <div style="color: #ffffff"><nobr><i class="fa fa-pencil fa-fw"></i>POST TIME:</nobr></div>
+                                            <div class="small"><nobr>${accord_result_time}</nobr></div>
                                         </div>
                                       
                                     </div>
@@ -156,6 +148,15 @@ eof;
                     }
                     ?>
                 </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid">
+                <div class="col-xs-12">
+                    <div class="col-xs-4"><button type="button" class="btn btn-primary btn-block">前一页</button></div>
+                    <div class="col-xs-4"><button type="button" class="btn btn-default active btn-block">当前：<span di="instant_page">1</span></button></div>
+                    <div class="col-xs-4"><button type="button" class="btn btn-primary btn-block">后一页</button></div>
+                </div>
             </div>
         </div>
         <hr>
