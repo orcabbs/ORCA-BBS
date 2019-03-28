@@ -33,8 +33,9 @@
         <?php include "../text/hopeWords.php";?>
     </div>
 
-    <?php include "Live2D_initialize.php";?>
+
 </div>
+<?php include "Live2D_initialize.php";?>
 <?php include "../text/footer_block.php";?>
 </body>
 

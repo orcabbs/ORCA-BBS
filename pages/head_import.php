@@ -40,6 +40,9 @@ $head_imp=<<<eof
     <script src="https://cdn.ckeditor.com/ckeditor5/12.0.0/classic/ckeditor.js"></script>
     <style>body { padding-top: 70px; }</style>
     <link rel="stylesheet" href="../css/myConfig.css">
+    
+     <!--font awesome-->
+    <script src="https://use.fontawesome.com/35d04b4e14.js"></script>
 <!--控制ckeditor高度--><style>.ck-content {min-height: 200px;}</style>
 eof;
 echo $head_imp;

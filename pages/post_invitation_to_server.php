@@ -44,6 +44,6 @@ if (isset($_SESSION['islogin'])) {
     $conn->query("insert into bbs_content(post_id,floor_user_email,floor_content) values ('$max_id','$user_email_tmp','$content')");
 
     $conn->close();
-    echo "<script type=\"text/javascript\">setTimeout(\"window.location.href='../forum_demo.php?forum_id=${forum_id}'\",0);</script>";
+    echo "<script type=\"text/javascript\">setTimeout(\"window.location.href='./forum_demo.php?forum_id=${forum_id}'\",0);</script>";
 }
 ?>

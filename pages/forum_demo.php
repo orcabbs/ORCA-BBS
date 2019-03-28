@@ -12,22 +12,19 @@
 <head>
     <?php include "head_import.php";?>
     <title>ORCA</title>
-    <style>
-    </style>
+    <style>.serif{font-family: italic bold  Georgia, serif;}</style>
 </head>
 
 <body>
     <?php include "navigator.php"?>
     <div class="container">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
-            <!-- Indicators -->
             <ol class="carousel-indicators" >
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
             </ol>
 
-            <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox" style="border-radius: 10px">
                 <div class="item active">
                     <img src="../src/pic/violet3.jpg" alt="...">
@@ -49,7 +46,6 @@
                 </div>
             </div>
 
-            <!-- Controls -->
             <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" style="border-radius: 10px">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -59,34 +55,30 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <div class="row" style="">
-            <div class="container-fluid" style="">
-                <ul class="pagination">
-                    <li><a href="#">&nbsp;发帖 <span class="glyphicon glyphicon-triangle-bottom"></span>&nbsp;</a></li>
-                </ul>
-                <nav aria-label="Page navigation" class="pull-right">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo; 返回</span>
-                            </a>
-                        </li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">...</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">下一页 &raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+        <hr>
+
+        <div class="row">
+            <div class="container-fluid">
+                <div class="col-md-8 col-sm-7 hidden-xs" style="background-color: #2e6da4;border-radius: 4px">
+                    <marquee><span class="serif" style="font-weight: bolder;font-size: 20px;color: white;"><span style="color: #e6eed8"><i class="fa fa-cog fa-spin"></i> Administrator: </span>Welcome to ORCA bbs, have fun and share your happiness.</span></marquee>
+                </div>
+                <div class="col-md-4 col-sm-5 col-xs-12">
+                    <div class="btn-group pull-right" role="group" aria-label="...">
+                        <button type="button" class="btn btn-primary">前一页</button>
+                        <button type="button" class="btn btn-default active ">当前页面：<span di="instant_page">1</span></button>
+                        <button type="button" class="btn btn-primary">后一页</button>
+                    </div>
+                </div>
+
             </div>
         </div>
+        <br>
         <div class="row" style="">
             <div class="col-md-2 hidden-sm hidden-xs column">
+                <div style="border-radius: 4px;margin-top: 2px;margin-bottom: -15px" class="text-center bg-primary">个人信息</div>
+                <br>
                 <?php include "profile_frame.php"?>
+
             </div>
             <div class="col-md-10 column">
                 <ul class="list-group">
@@ -114,7 +106,7 @@
 
                         $con->close();
 
-                        $html_insertRow= <<<eof
+                        $html_insertRow_odd= <<<eof
                             <li class="list-group-item ">
                                 <div class="container-fluid">
                                     <div class="row">
@@ -135,44 +127,42 @@
                                 </div>
                             </li>
 eof;
-                        echo $html_insertRow;
+                        $html_insertRow_even= <<<eof
+                        <li class="list-group-item " style="background-color: rgba(140,140,140,0.2)">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                    
+                                        <div class="col-xs-1">
+                                            <img src="../src/pic/head.jpeg" alt="" class="img-thumbnail" style="border: rgba(59,184,146,0.52) 2px solid;">
+                                        </div>
+                                        <div class="col-xs-9">
+                                            <a href="" style="font-size: medium;"><p>${row_result_title}</p></a>
+                                            <footer class="small"><div style="color: #8c8c8c">${accord_result_email}: ${accord_result_content}...</div></footer>
+                                        </div>
+                                        <div class="col-sm-2 text-right" style="color: #8c8c73">
+                                            <div style="color: #4e4e4e">Post Time:</div>
+                                            <div class="small">${accord_result_time}</div>
+                                        </div>
+                                      
+                                    </div>
+                                </div>
+                            </li>
+eof;
+                        if($rows%2==1){
+                            echo $html_insertRow_odd;
+                        }else{
+                            echo $html_insertRow_even;
+                        }
                     }
                     ?>
                 </ul>
-            </div>
-        </div>
-
-        <hr>
-        <div class="row" style="">
-            <div class="container-fluid" style="">
-                <ul class="pagination">
-                    <li><a href="#">&nbsp;发帖 <span class="glyphicon glyphicon-triangle-bottom"></span>&nbsp;</a></li>
-                </ul>
-                <nav aria-label="Page navigation" class="pull-right">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo; 返回</span>
-                            </a>
-                        </li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">...</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">下一页 &raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
             </div>
         </div>
         <hr>
 
     </div>
     <div class="container">
-        <form action="./plugins/post_invitation_to_server.php?forum_id=<?php echo "$forum_id"?>" id="replyForm" method="post">
+        <form action="post_invitation_to_server.php?forum_id=<?php echo $forum_id?>" id="replyForm" method="post">
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">标题</span>
                 <input type="text" class="form-control" placeholder="请输入标题（必填）" aria-describedby="basic-addon1" name="post_title">
@@ -209,6 +199,7 @@ eof;
             <hr>
         </form>
     </div>
+    <?php include "Live2D_initialize.php";?>
     <?php include "../text/footer_block.php";?>
 </body>
 <script>
