@@ -8,9 +8,10 @@ if (isset($_SESSION['islogin'])) {
     $result_tmp=$mysqli->query("select * from bbs_account where bbs_account.user_email='$user_email_tmp'");
     $row_tmp=$result_tmp->fetch_array();
     $user_name_tmp=$row_tmp['user_name'];
+    $random_number=rand(1,10000);
     $html_profile= <<<eof
     <div class="thumbnail">
-        <img src="../src/pic/head.jpeg" alt="..." class="img-circle" style="border: #94ccc1 4px solid">
+        <img src="https://www.thiswaifudoesnotexist.net/example-${random_number}.jpg" alt="..." class="img-circle" style="border: #94ccc1 4px solid">
         <div class="caption">
             <h3 class="text-center">${user_name_tmp}</h3>
             <p class="text-center" style="color: #8c8c8c">${user_email_tmp}</p>

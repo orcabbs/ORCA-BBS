@@ -15,7 +15,7 @@
     <style>.serif{font-family: italic bold  Georgia, serif;}</style>
 </head>
 
-<body>
+<body background="../src/pic/memphis-colorful.png">
     <?php include "navigator.php"?>
     <div class="container">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
@@ -95,6 +95,7 @@
                         $accord_result_content=mb_substr(strip_tags(characet($accord_row['floor_content'])),0,30);
                         $accord_result_time=characet($accord_row['post_time']);
                         $accord_result_email=characet($accord_row['floor_user_email']);
+                        $random_number=rand(1,10000);
 
                         $con->close();
 
@@ -104,7 +105,7 @@
                                     <div class="row">
                                     
                                         <div class="col-lg-1 hidden-md hidden-sm hidden-xs">
-                                            <img src="../src/pic/head.jpeg" alt="" class="img-thumbnail" style="border: rgba(59,184,146,0.52) 2px solid;">
+                                            <img src="https://www.thiswaifudoesnotexist.net/example-${random_number}.jpg" alt="" class="img-thumbnail" style="border: rgba(59,184,146,0.52) 2px solid;">
                                         </div>
                                         <div class="col-xs-9">
                                             <a href="" style="font-size: medium;"><p>${row_result_title}</p></a>
@@ -120,12 +121,12 @@
                             </li>
 eof;
                         $html_insertRow_even= <<<eof
-                        <li class="list-group-item " style="background-color: rgba(140,140,140,0.2)">
+                        <li class="list-group-item " style="background-color: rgb(238,238,238)">
                                 <div class="container-fluid">
                                     <div class="row">
                                     
                                         <div class="col-lg-1 hidden-md hidden-sm hidden-xs">
-                                            <img src="../src/pic/head.jpeg" alt="" class="img-thumbnail" style="border: rgba(59,184,146,0.52) 2px solid;">
+                                            <img src="https://www.thiswaifudoesnotexist.net/example-${random_number}.jpg" alt="" class="img-thumbnail" style="border: rgba(59,184,146,0.52) 2px solid;">
                                         </div>
                                         <div class="col-xs-9">
                                             <a href="" style="font-size: medium;"><p>${row_result_title}</p></a>
@@ -165,7 +166,7 @@ eof;
     <div class="container">
         <form action="post_invitation_to_server.php?forum_id=<?php echo $forum_id?>" id="replyForm" method="post">
             <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">标题</span>
+                <span class="input-group-addon" id="basic-addon1">发帖嗷！</span>
                 <input type="text" class="form-control" placeholder="请输入标题（必填）" aria-describedby="basic-addon1" name="post_title">
             </div>
             <br>
@@ -200,8 +201,7 @@ eof;
             <hr>
         </form>
     </div>
-    <?php include "Live2D_initialize.php";?>
-    <?php include "../text/footer_block.php";?>
+    <?php include "../text/footer_block.php";include "Live2D_initialize.php";?>
 </body>
 <script>
 
