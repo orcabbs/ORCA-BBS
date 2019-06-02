@@ -6,6 +6,7 @@
  * Time: 11:58
  */
 @$forum_id=$_GET['forum_id'];
+@$forum_id=1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,7 +109,7 @@
                                             <img src="https://www.thiswaifudoesnotexist.net/example-${random_number}.jpg" alt="" class="img-thumbnail" style="border: rgba(59,184,146,0.52) 2px solid;">
                                         </div>
                                         <div class="col-xs-9">
-                                            <a href="" style="font-size: medium;"><p>${row_result_title}</p></a>
+                                            <a href="./check_floor.php?post_id_=${row_result_postID}" style="font-size: medium;"><p>${row_result_title}</p></a>
                                             <footer class="small"><div style="color: #8c8c8c">${accord_result_email}: ${accord_result_content}...</div></footer>
                                         </div>
                                         <div class="col-lg-2 col-xs-3 text-right" style="color: #ffffff;background-color: #818386;border-radius: 4px;">
@@ -129,7 +130,7 @@ eof;
                                             <img src="https://www.thiswaifudoesnotexist.net/example-${random_number}.jpg" alt="" class="img-thumbnail" style="border: rgba(59,184,146,0.52) 2px solid;">
                                         </div>
                                         <div class="col-xs-9">
-                                            <a href="" style="font-size: medium;"><p>${row_result_title}</p></a>
+                                            <a href="./check_floor.php?post_id_=${row_result_postID}" style="font-size: medium;"><p>${row_result_title}</p></a>
                                             <footer class="small"><div style="color: #8c8c8c">${accord_result_email}: ${accord_result_content}...</div></footer>
                                         </div>
                                         <div class="col-lg-2 col-xs-3 text-right" style="color: #ffffff;background-color: #818386;border-radius: 4px;">

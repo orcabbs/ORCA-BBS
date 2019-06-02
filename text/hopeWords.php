@@ -1,6 +1,6 @@
 <?php
-$main=60;
-$forum=50;
+$main=70;
+$forum=60;
 $back=10;
 
 ?>
@@ -36,6 +36,10 @@ $back=10;
                 </div>
             </div>
             <button class="btn btn-danger btn-block" type="button">后台管理开发日志</button>
+        </div>
+        <hr>
+        <div class="row">
+            <button class="btn btn-info btn-block" type="button"><a href="../bbs_file.pdf" style="color: white">查看文档</a></button>
         </div>
     </div>
 </div>
