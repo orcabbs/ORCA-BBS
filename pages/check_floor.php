@@ -29,7 +29,7 @@
         <ul class="list-group">
             <li class="list-group-item bg-primary" style="background-color: #2e6da4">帖子号:<?php echo $post_id_;?><span class="glyphicon glyphicon-triangle-bottom"></span></li>
         <?php
-        $reply_list=$mysqli->query("select * from bbs_content where post_id='$post_id_' order by post_time desc");
+        $reply_list=$mysqli->query("select * from bbs_content where post_id='$post_id_' order by post_time");
         for($rows=1;$rows<=$reply_list->num_rows;$rows++) {
             $row_result = $reply_list->fetch_array();
             $row_floor_content = characet($row_result['floor_content']);
@@ -40,19 +40,22 @@
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
-            $floor_html= <<<eof
+            $floor_html_odd= <<<eof
             <li class="list-group-item ">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-2 hidden-sm hidden-xs" style="background: rgba(0,0,0,0.08)">
-                            <img src="../src/pic/head.jpeg" alt="" class="img-thumbnail" style="border: rgba(59,184,146,0.52) 2px solid;height: 100px;">
-                            
-                            <div><a href="">${row_user_email}</a></div>
+                        <div class="col-md-2 text-center tieziBackModel" style="">
+                            <div style="margin: 5px">
+                                <img src="../src/pic/head.jpeg" alt="" class="img-thumbnail" style="border: rgba(59,184,146,0.52) 2px solid;height: 100px;">
+                                <div><a href="">${row_user_email}</a></div>
+                            </div>
                         </div>
                         <div class="col-md-8">
-                            <div>${row_floor_content}</div>
+                            <div>
+                                <div>${row_floor_content}</div>
+                            </div>
                         </div>
-                        <div class="col-md-2 text-right" style="color: #ffffff;background-color: #818386;border-radius: 4px;">
+                        <div class="col-md-2 hidden-sm hidden-xs text-center" style="color: #ffffff;background-color: #818386;border-radius: 4px;">
                             <div style="color: #ffffff"><nobr><i class="fa fa-pencil fa-fw"></i>POST TIME:</nobr></div>
                             <div class="small"><nobr>${row_post_time}</nobr></div>
                         </div>
@@ -61,9 +64,37 @@
                 </div>
             </li>
 eof;
+            $floor_html_even= <<<eof
+            <li class="list-group-item" style="background: rgba(0,0,0,0.03);">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-2 text-center tieziBackModel" style="">
+                            <div style="margin: 5px">
+                                <img src="../src/pic/head.jpeg" alt="" class="img-thumbnail" style="border: rgba(59,184,146,0.52) 2px solid;height: 100px;">
+                                <div><a href="">${row_user_email}</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div>
+                                <div>${row_floor_content}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 hidden-sm hidden-xs text-center" style="color: #ffffff;background-color: #818386;border-radius: 4px;">
+                            <div style="color: #ffffff"><nobr><i class="fa fa-pencil fa-fw"></i>POST TIME:</nobr></div>
+                            <div class="small"><nobr>${row_post_time}</nobr></div>
+                        </div>
+                      
+                    </div>
+                </div>
+            </li>
+eof;
+
             $con->close();
-            echo $floor_html;
-            //echo "<hr>";
+            if($rows%2==1){
+                echo $floor_html_odd;
+            }else{
+                echo $floor_html_even;
+            }
         }
         ?>
         </ul>
@@ -81,13 +112,13 @@ eof;
 
     </div>
     <div class="container">
-        <form action="post_invitation_to_server.php?forum_id=<?php echo $forum_id?>" id="replyForm" method="post">
-            <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">发帖嗷！</span>
-                <input type="text" class="form-control" placeholder="请输入标题（必填）" aria-describedby="basic-addon1" name="post_title">
-            </div>
-            <br>
-            <textarea name="post_content" id="editor" placeholder="请输入内容" form="replyForm">
+        <form action="post_invitation_to_server_ForContent.php?post_id=<?php echo $post_id_?>" id="replyForm" method="post">
+<!--            <div class="input-group">-->
+<!--                <span class="input-group-addon" id="basic-addon1">回帖吧！</span>-->
+<!--                <input type="text" class="form-control" placeholder="请输入标题（必填）" aria-describedby="basic-addon1" name="post_title">-->
+<!--            </div>-->
+<!--            <br>-->
+            <textarea name="post_content" id="editor" placeholder="请输入内容（必填）" form="replyForm">
             </textarea>
             <script>
                 ClassicEditor.create( document.querySelector( '#editor' ) )
