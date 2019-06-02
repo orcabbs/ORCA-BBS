@@ -1,7 +1,7 @@
 <?php
-$main=70;
-$forum=60;
-$back=10;
+$main=90;
+$forum=90;
+$back=20;
 
 ?>
 <style>.serif{font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;}</style>

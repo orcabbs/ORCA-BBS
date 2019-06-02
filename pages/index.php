@@ -21,7 +21,7 @@
                 <div class="container">
                     <p>欢迎来到山东大学（威海）ORCA论坛。你可以注册一个帐号，以浏览更多精彩内容，并随时发布观点，与大家交流。</p>
                     <p>
-                        <a class="btn btn-default btn-lg" href="homepage.php" style="opacity: 0.8">&nbsp;进入论坛（目前正在开发）&nbsp;
+                        <a class="btn btn-default btn-lg" href="homepage.php" style="opacity: 0.8">&nbsp;进入论坛（现已发布测试版）&nbsp;
                             <span class="glyphicon glyphicon-arrow-right"></span>
                         </a>
                     </p>
