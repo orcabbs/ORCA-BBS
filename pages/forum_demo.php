@@ -129,9 +129,9 @@
                                         <div class="col-lg-2 col-xs-3 text-right" style="color: #ffffff;background-color: #818386;border-radius: 4px;">
                                             <div style="color: #ffffff"><nobr><i class="fa fa-pencil fa-fw"></i>POST TIME:</nobr></div>
                                             <div class="small"><nobr>${accord_result_time}</nobr></div>
-                                            <button type="submit" class="btn btn-danger btn-block" name="delete" style="background-color: #afafaf;border-color: #808386;" ${disabled}>
+                                            <a href="./post_invitation_to_server_DeleteByPostID.php?post_id_delete=${row_result_postID}&forum_id=${forum_id}"><button type="submit" class="btn btn-danger btn-block" name="delete" style="background-color: #afafaf;border-color: #808386;" ${disabled}>
                                                 <span class="glyphicon glyphicon-edit"></span> 删除
-                                            </button>
+                                            </button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -152,9 +152,9 @@ eof;
                                         <div class="col-lg-2 col-xs-3 text-right" style="color: #ffffff;background-color: #818386;border-radius: 4px;">
                                             <div style="color: #ffffff"><nobr><i class="fa fa-pencil fa-fw"></i>POST TIME:</nobr></div>
                                             <div class="small"><nobr>${accord_result_time}</nobr></div>
-                                            <button type="submit" class="btn btn-danger btn-block" name="delete" style="background-color: #afafaf;border-color: #808386;" ${disabled}>
+                                            <a href="./post_invitation_to_server_DeleteByPostID.php?post_id_delete=${row_result_postID}&forum_id=${forum_id}"><button type="submit" class="btn btn-danger btn-block" name="delete" style="background-color: #afafaf;border-color: #808386;" ${disabled}>
                                                 <span class="glyphicon glyphicon-edit"></span> 删除
-                                            </button>
+                                            </button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -220,7 +220,7 @@ eof;
             <hr>
         </form>
     </div>
-    <?php include "../text/footer_block.php";include "Live2D_initialize.php";?>
+    <?php include "../text/footer_block.php";?>
 </body>
 <script>
 

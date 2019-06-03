@@ -274,7 +274,7 @@ eof;
 
     </div>
 </div>
-<?php include "../text/footer_block.php";include "Live2D_initialize.php"?>
+<?php include "../text/footer_block.php";?>
 </body>
 
 <div class="row">
