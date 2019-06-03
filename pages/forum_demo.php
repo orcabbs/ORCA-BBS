@@ -6,7 +6,6 @@
  * Time: 11:58
  */
 @$forum_id=$_GET['forum_id'];
-@$forum_id=1;
 ?>
 <!DOCTYPE html>
 <html lang="en">

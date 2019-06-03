@@ -83,7 +83,7 @@ eof;
                             <br>
                         </div>
                         <div class="col-xs-12 col-md-6 col-lg-4">
-                            <a href="../pages/forum_demo.php?forum_id=1" class="" name="">
+                            <a href="../pages/forum_demo.php?forum_id=3" class="" name="">
                                 <div class="row">
                                     <div class="col-xs-3">
                                         <img src="https://s2.ax1x.com/2019/03/28/AdW5O1.png" style="width: 80px;height: 80px;border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px">
