@@ -19,7 +19,7 @@
         </div>
         <div class="col-xs-12 col-sm-10">
             <ul class="bs-docs-footer-links">
-                <li><a href="https://github.com/">ORCA的GitHub仓库</a></li>
+                <li><a href="https://github.com/orcabbs/ORCA_BBS">ORCA的GitHub仓库</a></li>
                 <li><a href="">联系我们</a></li>
                 <li><a href="">关于我们的团队</a></li>
             </ul>

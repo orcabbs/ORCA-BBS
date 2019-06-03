@@ -11,7 +11,7 @@ if (isset($_SESSION['islogin'])) {
     $random_number=rand(1,10000);
     $html_profile= <<<eof
     <div class="thumbnail">
-        <img src="https://www.thiswaifudoesnotexist.net/example-${random_number}.jpg" alt="..." class="img-circle" style="border: #94ccc1 4px solid">
+        <img src="../src/pic/head.jpeg" alt="..." class="img-circle" style="border: #94ccc1 4px solid">
         <div class="caption">
             <h3 class="text-center">${user_name_tmp}</h3>
             <p class="text-center" style="color: #8c8c8c">${user_email_tmp}</p>
