@@ -6,6 +6,7 @@
  * Time: 11:58
  */
 @$forum_id=$_GET['forum_id'];
+//@$forum_id=1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,13 +79,27 @@
                     <?php
                     $result_list=$mysqli->query("select * from bbs_list where forum_id='$forum_id' order by post_time desc");
 //                                            echo $result_list->num_rows;
+                    $user_email_tmp=null;
+                    if (isset($_COOKIE['user_email'])) {
+                        $_SESSION['user_email'] = $_COOKIE['user_email'];
+                        $_SESSION['islogin'] = 1;
+                    }
+                    if (isset($_SESSION['islogin'])) {
+                        $user_email_tmp = $_SESSION['user_email'];
+                        $result_tmp = $mysqli->query("select * from bbs_account where bbs_account.user_email='$user_email_tmp'");
+                        $row_tmp = $result_tmp->fetch_array();
+                        $user_name_tmp = $row_tmp['user_name'];
+                    }
                     for($rows=1;$rows<=$result_list->num_rows;$rows++){
                         $row_result=$result_list->fetch_array();
                         $row_result_title=characet($row_result['title']);
 //                        $rr=$row_result["title"];
                         $row_result_postID=characet($row_result['post_id']);
-
-
+                        $row_result_builder=characet($row_result['builder_email']);
+                        $disabled="disabled=\"disabled\"";
+                        if($row_result_builder==$user_email_tmp){
+                            $disabled="";
+                        }
                         try{
                             $con=new mysqli('qdm178341200.my3w.com','qdm178341200','Orcabbs666','qdm178341200_db');
                         }catch(Exception $e){
@@ -103,7 +118,7 @@
                             <li class="list-group-item ">
                                 <div class="container-fluid">
                                     <div class="row">
-                                    
+                                        
                                         <div class="col-lg-1 hidden-md hidden-sm hidden-xs">
                                             <img src="https://www.thiswaifudoesnotexist.net/example-${random_number}.jpg" alt="" class="img-thumbnail" style="border: rgba(59,184,146,0.52) 2px solid;">
                                         </div>
@@ -114,8 +129,10 @@
                                         <div class="col-lg-2 col-xs-3 text-right" style="color: #ffffff;background-color: #818386;border-radius: 4px;">
                                             <div style="color: #ffffff"><nobr><i class="fa fa-pencil fa-fw"></i>POST TIME:</nobr></div>
                                             <div class="small"><nobr>${accord_result_time}</nobr></div>
+                                            <button type="submit" class="btn btn-danger btn-block" name="delete" style="background-color: #afafaf;border-color: #808386;" ${disabled}>
+                                                <span class="glyphicon glyphicon-edit"></span> 删除
+                                            </button>
                                         </div>
-                                      
                                     </div>
                                 </div>
                             </li>
@@ -124,7 +141,7 @@ eof;
                         <li class="list-group-item " style="background-color: rgb(238,238,238)">
                                 <div class="container-fluid">
                                     <div class="row">
-                                    
+                                        
                                         <div class="col-lg-1 hidden-md hidden-sm hidden-xs">
                                             <img src="https://www.thiswaifudoesnotexist.net/example-${random_number}.jpg" alt="" class="img-thumbnail" style="border: rgba(59,184,146,0.52) 2px solid;">
                                         </div>
@@ -135,8 +152,10 @@ eof;
                                         <div class="col-lg-2 col-xs-3 text-right" style="color: #ffffff;background-color: #818386;border-radius: 4px;">
                                             <div style="color: #ffffff"><nobr><i class="fa fa-pencil fa-fw"></i>POST TIME:</nobr></div>
                                             <div class="small"><nobr>${accord_result_time}</nobr></div>
+                                            <button type="submit" class="btn btn-danger btn-block" name="delete" style="background-color: #afafaf;border-color: #808386;" ${disabled}>
+                                                <span class="glyphicon glyphicon-edit"></span> 删除
+                                            </button>
                                         </div>
-                                      
                                     </div>
                                 </div>
                             </li>
